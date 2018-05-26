@@ -10,13 +10,17 @@ class CookieConsent extends Component {
     return (
       <div className="cookieConsent">
         <div className="cookieConsent__text">
-          By continuing to use this site, you agree to the use of cookies and
-          google analytics. Find out more by the following
+          <span>
+            By continuing to use this site, you agree to the use of cookies. Find
+            out more by the following
+            <Link to="/cookie" style={{ marginLeft: '5px' }}>
+              Link
+            </Link>
+          </span>
+          <a onClick={this.props.closeCookie} className="close_btn closeBtn">
+            &times;
+          </a>
         </div>
-        <Link to="/cookie">Link</Link>
-        <a onClick={this.props.closeCookie} className="close_btn">
-          Got it!
-        </a>
       </div>
     );
   }

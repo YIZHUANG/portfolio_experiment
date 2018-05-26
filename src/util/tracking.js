@@ -50,6 +50,13 @@ const onClickExperience = item => {
   });
 };
 
+const onClickThemeChange = () => {
+  ReactGA.event({
+    category: 'Click ThemeChange',
+    action: 'Click ThemeChange'
+  });
+};
+
 export {
   newVisitor,
   DownLoadCV,
@@ -57,5 +64,6 @@ export {
   onCLickGithub,
   onClickInstagram,
   visitCookie,
-  onClickExperience
+  onClickExperience,
+  onClickThemeChange,
 };

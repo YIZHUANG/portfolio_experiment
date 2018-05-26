@@ -18,6 +18,19 @@
   font-weight: 400;
   color: #7c795d;
   text-align: center;
+  position: relative;
+  text-align: justify;
+  margin:5px 0 0 0;
+}
+.title:after {
+  content: '\201C';
+  position: absolute;
+  top: -0.5rem;
+  line-height: 1;
+  font-size: 5rem;
+  color: #f0eeee;
+  font-family: sans-serif;
+  z-index: 1;
 }
 .icons_container {
   display: flex;

@@ -1,9 +1,9 @@
 export default {
   particles: {
     number: {
-      value: 60,
+      value: 100,
       density: {
-        enable: true,
+        enable: false,
         value_area: 800
       }
     },
@@ -11,13 +11,19 @@ export default {
       value: '#ffffff'
     },
     shape: {
-      type: 'circle',
+      type: 'star',
       stroke: {
         width: 0,
         color: '#000000'
       },
       polygon: {
         nb_sides: 5
+      },
+      image: {
+        src:
+          'http://wiki.lexisnexis.com/academic/images/f/fb/Itunes_podcast_icon_300.jpg',
+        width: 100,
+        height: 100
       }
     },
     opacity: {
@@ -31,7 +37,7 @@ export default {
       }
     },
     size: {
-      value: 3,
+      value: 4,
       random: true,
       anim: {
         enable: false,
@@ -41,7 +47,7 @@ export default {
       }
     },
     line_linked: {
-      enable: true,
+      enable: false,
       distance: 150,
       color: '#ffffff',
       opacity: 0.4,
@@ -49,10 +55,10 @@ export default {
     },
     move: {
       enable: true,
-      speed: 6,
-      direction: 'none',
+      speed: 14,
+      direction: 'left',
       random: false,
-      straight: false,
+      straight: true,
       out_mode: 'out',
       bounce: false,
       attract: {
@@ -66,18 +72,18 @@ export default {
     detect_on: 'canvas',
     events: {
       onhover: {
-        enable: true,
-        mode: 'repulse'
+        enable: false,
+        mode: 'grab'
       },
       onclick: {
         enable: true,
-        mode: 'push'
+        mode: 'repulse'
       },
       resize: true
     },
     modes: {
       grab: {
-        distance: 400,
+        distance: 200,
         line_linked: {
           opacity: 1
         }

@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
 import Particles from 'react-particles-js';
 import Cookies from 'js-cookie';
 
-import particleConfig from './particle';
-
-import { newVisitor, DownLoadCV } from './util/tracking';
-
-import BasicInfo from './components/basicInfo';
-import MainContent from './components/mainContent';
-import Chatbot from './components/chatbot';
 import CookieConsent from './components/cookieConsent';
-
 import GetCookie from './util/getCookie';
+import { newVisitor } from './util/tracking';
+import Chatbot from './components/chatbot';
+import Home from './Home';
+import Cookie from './boilterplate/cookie';
+import { RedTheme } from './theme';
+
+import './App.css';
 
 class App extends Component {
   constructor() {
     super();
-    this.state = { showCookie: false };
+    this.state = { showCookie: false, particleConfig: RedTheme };
   }
   componentDidMount() {
     newVisitor();
@@ -31,42 +30,43 @@ class App extends Component {
     this.setState({ showCookie: false });
   }
 
+  onThemeChange(theme, bg) {
+    this.setState({ particleConfig: theme });
+    document.body.style.background = bg;
+  }
+
   render() {
     return (
-      <div className="wrapper">
-        <Particles
-          params={particleConfig}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%'
-          }}
-        />
-        <div className="resume">
-          <a
-            className="resume-btn"
-            href="https://files.fm/down.php?cf&i=jtc9s3rr&n=CV_YI.pdf"
-            target="_blank"
-            onClick={() => DownLoadCV()}
-            style={
-              !GetCookie() ? { marginTop: '100px' } : { marginTop: '20px' }
-            }
-          >
-            <i className="fa fa-cloud" />
-            Download Resume
-          </a>
+      <BrowserRouter>
+        <div className="wrapper">
+          <Particles
+            params={this.state.particleConfig}
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%'
+            }}
+          />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              component={() => (
+                <Home
+                  onThemeChange={(theme, bg) => this.onThemeChange(theme, bg)}
+                />
+              )}
+            />
+            <Route exact path="/cookie" component={Cookie} />
+          </Switch>
+          <Chatbot />
+          {this.state.showCookie ? (
+            <CookieConsent closeCookie={() => this.closeCookie()} />
+          ) : null}
         </div>
-        <div className="personal-info__container">
-          <BasicInfo />
-        </div>
-        <MainContent />
-        <Chatbot />
-        {this.state.showCookie ? (
-          <CookieConsent closeCookie={() => this.closeCookie()} />
-        ) : null}
-      </div>
+      </BrowserRouter>
     );
   }
 }

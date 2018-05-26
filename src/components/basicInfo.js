@@ -13,7 +13,7 @@ const BasicInfo = () => {
     <div className="BasicInfo">
       <img className="myImg" src={myPic} alt="myImg" />
       <h1 className="name">Yi Zhuang</h1>
-      <div className="title">Full-stack developer and Guitar player</div>
+      <div className="title">Software developer and Guitar player</div>
       <div className="icons_container">
         <a
           href="https://github.com/YIZHUANG"

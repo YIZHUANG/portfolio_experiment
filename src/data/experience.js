@@ -5,7 +5,7 @@ const Experience = [
     time:'04.2018 to present',
     detail:
       'As a front-end developer in Elisa, i interact with React, Redux and Sass daily, and getting to learn about the entire software lifecycle such as continuous integration using tools like Docker, Jenkins, having a strong communication tie with the product owner and designer',
-    Link: 'https://kirja.elisa.fi/'
+    Link: 'https://github.com/YIZHUANG/'
   },
   {
     title: 'FriendShip App',
