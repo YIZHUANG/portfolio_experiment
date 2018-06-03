@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import './modal.css';
 import OnClickOutSide from '../util/onClickOutSide';
@@ -38,3 +39,13 @@ export default class Modal extends Component {
     );
   }
 }
+
+Modal.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    Link: PropTypes.string.isRequired,
+    detail: PropTypes.string.isRequired,
+    time: PropTypes.string.isRequired
+  }).isRequired,
+  onClose: PropTypes.func.isRequired
+};

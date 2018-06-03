@@ -1,10 +1,10 @@
 const KeyWords = [
-  'Clean and maintainable code',
-  'Code review',
-  'Face-to-face communication',
-  'Testing',
-  'Problem solving',
-  'Scrum',
+  {text:'Clean and maintainable code'},
+  {text:'Code review'},
+  {text:'Face-to-face communication'},
+  {text:'Testing'},
+  {text:'Problem solving'},
+  {text:'Scrum'},
 ];
 
 export default KeyWords;
