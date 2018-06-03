@@ -11,6 +11,7 @@ import Themes from './data/themes';
 
 class Home extends Component {
   state = { showDropDown: false };
+
   changeTheme(theme, bg) {
     this.props.onThemeChange(theme, bg);
     this.setState({ showDropDown: false });

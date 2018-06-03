@@ -8,20 +8,30 @@ import PropTypes from 'prop-types';
 
 class RenderList extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = { list: props.itemList };
   }
 
-  onSortEnd = ({ oldIndex, newIndex }) => {
-    this.setState({
-      list: arrayMove(this.state.list, oldIndex, newIndex)
-    });
+  onSortEnd = ({ oldIndex, newIndex }, e) => {
+    if (!e.target.parentNode.className) {
+      this.setState({
+        list: this.state.list.filter((item, index) => index !== oldIndex)
+      });
+    } else {
+      this.setState({
+        list: arrayMove(this.state.list, oldIndex, newIndex)
+      });
+    }
   };
 
   render() {
     const { itemList, onClick } = this.props;
     const SortableItem = SortableElement(({ item }) => (
-      <div className="card--item__container">
+      <div
+        draggable="true"
+        onDragStart={this.onDragStart}
+        className="card--item__container"
+      >
         <a
           onClick={() => onClick(item)}
           target="_blank"
