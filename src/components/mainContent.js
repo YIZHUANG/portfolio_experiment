@@ -19,26 +19,21 @@ class MainContent extends Component {
   render() {
     return (
       <div className="profile__container">
-        <Card
-          title="Main skills"
-          children={<RenderList itemList={mainSkills}/>}
-        />
-        <Card
-          title="Experiences"
-          children={
-            <RenderList
-              itemList={experiences}
-              onClick={item => {
-                onClickExperience(item.text);
-                this.setState({ selectedItem: item, showModal: true });
-              }}
-            />
-          }
-        />
-        <Card
-          title="Personal traits"
-          children={<RenderList itemList={keywords}/>}
-        />
+        <Card title="Main skills">
+          <RenderList itemList={mainSkills} />
+        </Card>
+        <Card title="Experiences">
+          <RenderList
+            itemList={experiences}
+            onClick={item => {
+              onClickExperience(item.text);
+              this.setState({ selectedItem: item, showModal: true });
+            }}
+          />
+        </Card>
+        <Card title="Personal traits">
+          <RenderList itemList={keywords} />
+        </Card>
         {this.state.showModal && (
           <Modal
             item={this.state.selectedItem}
